@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 
@@ -17,16 +18,19 @@ class LocatorOrderNamePage:
 
 class ScooterOrderNamePage(BasePage):
 
+    @allure.step('click order button from the header')
     def click_button_order_header(self):
         button_order_header = self.find_element(LocatorOrderNamePage.button_order_header, time=3)
         button_order_header.click()
 
+    @allure.step('click order button from the middle of the page')
     def click_button_order_middle(self):
 
         button_order_middle = self.find_element(LocatorOrderNamePage.button_order_middle, time=3)
         self.scroll_down(button_order_middle)
         button_order_middle.click()
 
+    @allure.step('filling out the name form')
     def filling_out_the_name_form(self, name, lastname, address, metro, phone):
         input_name = self.find_element(LocatorOrderNamePage.input_name, time=3)
         input_name.send_keys(name)

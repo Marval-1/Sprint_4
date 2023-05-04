@@ -9,7 +9,7 @@ from pages.scooter_order_name_page import LocatorOrderNamePage
 
 @pytest.fixture
 def driver():
-    driver = webdriver.Firefox(executable_path='./geckodriver') # На моей машине работает, если так прописан путь
+    driver = webdriver.Firefox(executable_path='./geckodriver')
     driver.maximize_window()
     yield driver
     driver.quit()

@@ -7,7 +7,7 @@ from test_data import UserData
 from test_data import Urls
 
 
-@allure.story('TestOrderFlow')
+@allure.title('TestOrderFlow')
 class TestOrderFlow:
     @allure.feature('test order by using button from the header')
     @pytest.mark.parametrize('name, lastname, address, metro, phone', [

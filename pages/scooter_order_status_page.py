@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 
@@ -10,10 +11,12 @@ class LocatorOrderStatusPage:
 
 
 class ScooterOrderStatusPage(BasePage):
+    @allure.step('click on logo yandex')
     def click_logo_yandex(self, driver):
         logo_yandex = self.find_element(LocatorOrderStatusPage.logo_yandex, time=3)
         logo_yandex.click()
 
+    @allure.step('click on logo scooter')
     def click_logo_scooter(self):
         logo_scooter = self.find_element(LocatorOrderStatusPage.logo_scooter, time=3)
         logo_scooter.click()

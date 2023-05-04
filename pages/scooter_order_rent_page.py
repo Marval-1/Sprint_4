@@ -1,3 +1,5 @@
+import allure
+
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 
@@ -15,6 +17,7 @@ class LocatorOrderRentPage:
 
 
 class ScooterOrderRentPage(BasePage):
+    @allure.step('filling out the rent form')
     def filling_out_the_rent_form(self):
         input_date = self.find_element(LocatorOrderRentPage.input_date, time=3)
         input_date.send_keys('30.05.2023')
@@ -29,12 +32,14 @@ class ScooterOrderRentPage(BasePage):
         button_order_final = self.find_element(LocatorOrderRentPage.button_order_final, time=3)
         button_order_final.click()
 
+    @allure.step('confirm order')
     def confirm_order(self):
         button_yes = self.find_element(LocatorOrderRentPage.button_YES, time=3)
         button_yes.click()
         modal_window_order_success_title = self.find_element(LocatorOrderRentPage.modal_window_order_success_title, time=3)
         return modal_window_order_success_title.text
 
+    @allure.step('click order status button')
     def click_button_order_status(self):
         button_order_status = self.find_element(LocatorOrderRentPage.button_order_status, time=3)
         button_order_status.click()
